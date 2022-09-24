@@ -7,15 +7,18 @@ function Item({ name, category }) {
     setIsInCart((isInCart) => !isInCart);
   }
 
+  const liClassName = isInCart ? "in-cart" : "";
+  const btnAddRemoveName = isInCart ? "Remove From" : "Add to";
+
   return (
-    <li className={isInCart ? "in-cart" : ""}>
+    <li className={liClassName}>
       <span>{name}</span>
       <span className="category">{category}</span>
       <button
         className={isInCart ? "remove" : "add"}
         onClick={handleAddToCartClick}
       >
-        {isInCart ? "Remove From" : "Add to"} Cart
+        {btnAddRemoveName} Cart
       </button>
     </li>
   );
